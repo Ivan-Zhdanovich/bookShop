@@ -1,0 +1,17 @@
+.searchControl {
+    /* height: 100px; */
+    display: flex;
+    justify-content: center;
+    padding-top: 10;
+    flex-direction: row;
+    align-items: center;
+}
+.input {
+    width: 30%;
+    height: 40px;
+    padding: 0 10px;
+    background-color: inherit;
+    color: var(--font-color);
+    border: 1px solid var(--font-color);
+    border-radius: var(--radius);
+  }

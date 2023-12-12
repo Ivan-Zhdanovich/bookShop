@@ -1,0 +1,22 @@
+.cardWrapper {
+    display: contents;
+    background-color: aqua;
+   }
+   .h1 {
+    font-weight: bold;
+   }
+   .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius);
+    background-color: var(--body-bg-color);
+    border: 1px solid var(--font-color);
+    height: 100%;
+   }
+
+   .image {
+    width: 250px;
+   
+   }
