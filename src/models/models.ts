@@ -1,7 +1,7 @@
 export interface ServerResponse<T> {
     error: string
-    total: string
-    page?: string
+    total: number
+    page?: number
     books: T[]
   }
   
