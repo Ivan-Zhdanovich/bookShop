@@ -16,7 +16,12 @@ export function HomePage() {
     })
 
     const itemsPerPage = 10;
-    const pageCount = Math.ceil(((data?.total ?? 0) / itemsPerPage));
+    let pageCount = Math.ceil(((data?.total ?? 0) / itemsPerPage));
+
+    if (pageCount > 100) {
+        //API supports only 100 pages
+        pageCount = 100;
+    }
 
     const handleSearchInput = (searchText: string) => {
         setSearch(searchText);
