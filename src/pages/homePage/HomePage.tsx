@@ -1,19 +1,23 @@
-import React, {useState} from 'react'
-import {useSearchBooksQuery} from '../../store/itbook/itbook.api';
-import {BookCard} from '../../components/bookCard';
-import {SearchControl} from '../../components/searchControl';
-import {useDebounce} from "../../hooks/debounce";
-import styles from "./styles.module.css";
-import ReactPaginate from "react-paginate";
+import React, {useEffect, useState} from 'react'
+import {useSearchBooksQuery} from '../../store/itbook/itbook.api'
+import {BookCard} from '../../components/bookCard'
+import {SearchControl} from '../../components/searchControl'
+import {useDebounce} from "../../hooks/debounce"
+import styles from "../styles.module.css";
+import ReactPaginate from "react-paginate"
 
 export function HomePage() {
-    const [search, setSearch] = useState('');
-    const [page, setPage] = useState(1);
+    const [search, setSearch] = useState('')
+    const [page, setPage] = useState(1)
+    const [bookList, showBookList] = useState(false)
     const debounced = useDebounce(search, page)
     const {isLoading, isError, data} = useSearchBooksQuery(debounced, {
         skip: debounced.value.length < 3,
         refetchOnFocus: true
     })
+   useEffect(() =>  {
+    showBookList(search?.length > 2 && data?.total! > 0)
+   }, [debounced, data])
 
     const itemsPerPage = 10;
     let pageCount = Math.ceil(((data?.total ?? 0) / itemsPerPage));
@@ -35,23 +39,22 @@ export function HomePage() {
     return (
         <>
             {<SearchControl handleSearchInput={handleSearchInput} hasError={isError}/>}
-            <ol className={styles.booksList}>
-                {isLoading && <p className='text-center'>Loading...</p>}
+            {bookList && <ol className={styles.booksList}>
+                {isLoading && <p className={styles.textLoading}>Loading...</p>}
                 {data?.books.map(book => (
-                    <li key={book?.isbn13}
-                        className='py-2 px-4 hover:bg-gray-500 hover:text-white transition-colors cursor-pointer'>
+                    <li key={book?.isbn13} className={styles.book}>
                         <BookCard
                             title={book?.title}
-                            subtitle={book.subtitle}
-                            price={book.price}
-                            isbn13={book.isbn13}
-                            url={book.url}
-                            image={book.image}
+                            subtitle={book?.subtitle}
+                            price={book?.price}
+                            isbn13={book?.isbn13}
+                            url={book?.url}
+                            image={book?.image}
                         />
                     </li>
                 ))}
-            </ol>
-            <ReactPaginate
+            </ol>}
+            {bookList && <ReactPaginate                 
                 previousLabel={"← Previous"}
                 nextLabel={"Next →"}
                 pageCount={pageCount}
@@ -62,7 +65,7 @@ export function HomePage() {
                 nextLinkClassName={styles.pagination__link}
                 disabledClassName={styles.pagination__link__disabled}
                 activeClassName={styles.pagination__link__active}
-            />
+             />}
         </>
     )
 }

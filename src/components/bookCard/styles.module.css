@@ -1,22 +1,45 @@
-.cardWrapper {
-    display: contents;
-    background-color: aqua;
-   }
    .h1 {
     font-weight: bold;
    }
+
    .card {
     display: flex;
     flex-direction: column;
+    margin: 10px;
     gap: 0.3rem;
     padding: 0.3rem;
-    border-radius: var(--radius);
-    background-color: var(--body-bg-color);
+    text-align: center;
+    border-radius: 15px;
+    background-color: rgb(125 211 252);
     border: 1px solid var(--font-color);
-    height: 100%;
+    height: 96%;
    }
 
    .image {
     width: 200px;
+    text-align: center;
+   }
+   .wrap{
+    display: flex;
+    justify-content: center;
+   }
    
+   .buttonAdd {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding: 8px 8px;
+    margin-top: auto;
+    background-color:#facc15;
+    border-radius: 0.25rem;
+    transition: all;
+   }
+
+   .buttonRemove {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding: 8px 8px;
+    margin-top: auto;
+    background-color:#f87171;
+    border-radius: 0.25rem;
+    transition: all;
    }

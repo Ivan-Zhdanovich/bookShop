@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {useAppSelector} from '../hooks/redux'
-import styles from "./homePage/styles.module.css";
-import {BookCard} from "../components/bookCard";
-import {useLazyGetBookInfoQuery} from "../store/itbook/itbook.api";
+import styles from "../styles.module.css";
 import ReactPaginate from "react-paginate";
+import { BookCard } from '../../components/bookCard';
+import { useAppSelector } from '../../hooks/redux';
+import { useLazyGetBookInfoQuery } from '../../store/itbook/itbook.api';
 
 export function FavouritesPage() {
     const [itemOffset, setItemOffset] = useState(0);
@@ -27,17 +27,16 @@ export function FavouritesPage() {
     return (
         <>
             <ol className={styles.booksList}>
-                {isFavLoading && <p className='text-center'>Loading...</p>}
+                {isFavLoading && <p className={styles.textLoading}>Loading...</p>}
                 {currentItems?.map(book => (
-                    <li key={book?.isbn13}
-                        className='py-2 px-4 hover:bg-gray-500 hover:text-white transition-colors cursor-pointer'>
+                    <li key={book?.isbn13}  className={styles.book}>
                         <BookCard
                             title={book?.title}
-                            subtitle={book.subtitle}
-                            price={book.price}
-                            isbn13={book.isbn13}
-                            url={book.url}
-                            image={book.image}
+                            subtitle={book?.subtitle}
+                            price={book?.price}
+                            isbn13={book?.isbn13}
+                            url={book?.url}
+                            image={book?.image}
                         />
                     </li>
                 ))}

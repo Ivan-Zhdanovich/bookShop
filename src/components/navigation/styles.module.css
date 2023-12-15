@@ -1,0 +1,14 @@
+.navigation{
+   display: flex;
+   justify-content: space-between; 
+   align-items: center;
+   height: 4rem;
+   background-color: rgb(107 114 128);
+   padding-left: 20px;
+}
+
+.navigationItem{
+    color: black;
+    font-weight: bold;
+    margin-right: 20px;
+}

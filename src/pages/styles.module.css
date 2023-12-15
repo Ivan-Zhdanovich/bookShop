@@ -1,11 +1,10 @@
 .searchControl {
-    /* height: 100px; */
     display: flex;
     justify-content: center;
     padding-top: 10;
-    /* /* flex-direction: row; */
     align-items: center; 
 }
+
 .input {
     width: 20%;
     height: 40px;
@@ -21,7 +20,19 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
    }
-
+   .textLoading {
+    text-align: center;
+}
+.book{
+    text-align: center;
+    padding: 2px 4px;
+    transition: color 0.3s ease-in-out;
+}
+.book:hover{
+    background-color: gray;
+    color:#fff;
+    cursor: pointer;
+}
 
 .pagination {
     display: flex;

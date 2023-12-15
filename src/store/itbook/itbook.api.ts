@@ -37,4 +37,4 @@ export const itbookApi = createApi({
         
 })
 
-export const {useSearchBooksQuery, useLazySearchNewBooksQuery, useLazyGetBookInfoQuery} = itbookApi
+export const {useSearchBooksQuery, useLazySearchBooksQuery, useLazySearchNewBooksQuery, useLazyGetBookInfoQuery} = itbookApi

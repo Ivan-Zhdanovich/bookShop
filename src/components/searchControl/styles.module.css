@@ -1,12 +1,17 @@
 .search__container {
     display: flex;
-    justify-content: center;
+    justify-content: center;   
     padding-top: 10px;
     flex-direction: row;
     align-items: stretch;
     width: auto;
 }
-
+.input_container{
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 5px;
+    background: gainsboro;
+}
 input[type="text"] {
     padding: 10px;
     border: none;
@@ -16,17 +21,13 @@ input[type="text"] {
     background: gainsboro;
 }
 
-button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
+.button {
+    height: 1rem;
+    position: static;
+    padding-left: 10px;
+    transition: all .1s;
+    transition-delay: .1s;
+    }
+    
 
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
+    

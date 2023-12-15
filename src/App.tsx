@@ -1,10 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import { HomePage } from './pages/HomePage';
-import { FavouritesPage } from './pages/FavouritesPage';
-import { NewReleasesPage } from './pages/NewReleasesPage';
-import { Navigation } from './components/Navigation';
 import { HomePage } from './pages/homePage/HomePage';
+import { FavouritesPage } from './pages/favouritesPage/FavouritesPage';
+import { NewReleasesPage } from './pages/newReleasesPage';
+import { Navigation } from './components/navigation';
 
 
 function App() {

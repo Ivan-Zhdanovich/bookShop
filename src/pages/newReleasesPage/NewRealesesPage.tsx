@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import {useLazySearchNewBooksQuery} from '../store/itbook/itbook.api'
-import styles from "./styles.module.css";
-import {BookCard} from '../components/bookCard';
+import styles from "../styles.module.css";
 import ReactPaginate from "react-paginate";
+import { useLazySearchNewBooksQuery } from '../../store/itbook/itbook.api';
+import { BookCard } from '../../components/bookCard';
 
 export function NewReleasesPage() {
     const [itemOffset, setItemOffset] = useState(0);
@@ -26,10 +26,9 @@ export function NewReleasesPage() {
         <>
             <div className='container'>
                 <ol className={styles.booksList}>
-                    {isNewReleasesLoading && <p className='text-center'>Loading...</p>}
+                    {isNewReleasesLoading && <p className={styles.textLoading}>Loading...</p>}
                     {currentItems.map(book => (
-                        <li key={book?.isbn13}
-                            className='py-2 px-4 hover:bg-gray-500 hover:text-white transition-colors cursor-pointer'>
+                        <li key={book?.isbn13} className={styles.book}>
                             <BookCard
                                 title={book?.title}
                                 subtitle={book.subtitle}
